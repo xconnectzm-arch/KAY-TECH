@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kay-Tech Enterprises | Printing, Branding & ICT Solutions</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --button: #ff7a18;
+            --secondary: #e6af05;
+            --accent: #ff7a18;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--button);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            
+        }
+        
+        .btn:hover {
+            background: #000000;
+            color: #ff7a18 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: #000000 !important;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--secondary) !important;
+            transform: translateY(-2px);
+           box-shadow: 0 6px 16px rgba(230, 175, 5, 0.35);
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        
+        header.nav-hidden {
+            transform: translateY(-100%);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px; /* Increased logo size */
+            width: auto;
+            display: block;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-item { 
+            padding: 6px 0;
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--button);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+      
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px 0;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+            text-align: left;
+        }
+        
+        .service-content ul {
+            text-align: left;
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        
+        .service-content li {
+            text-align: left;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center !important;
+        }
+        
+        .service-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .service-content li {
+            list-style-type: disc;
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        .service-content .btn {
+            display: block;
+            margin: 15px auto 0;
+            width: fit-content;
+        }
+
+
+
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray);
+            text-align: justify;
+        }
+        
+        /* Clients Section */
+        .clients {
+            background: white;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .client-logo {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent, #ff7a18);
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .client-logo:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* Process Section */
+        .process {
+            background: var(--light);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--button);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 16%;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--button);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .step-number::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, var(--primary), #222);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .bank-details {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .bank-details h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Keep footer at the bottom of the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .cta {
+            flex: 1 0 auto;
+        }
+        
+        footer {
+            flex-shrink: 0;
+        }
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #e6af05;
+            padding-left: 5px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--button);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+       .mopani.client-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    width: 112px;
+    height: 120px;
+    padding: 15px;
+    margin: 0;
+
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    color: rgb(52, 58, 64);
+    font-family: Poppins, sans-serif;
+    line-height: 25.6px;
+
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mopani.client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.9);
+    transition: transform 0.5s ease;
+}
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .clients-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                flex-wrap: wrap;
+            }
+            
+            .step {
+                width: 33.33%;
+                margin-bottom: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                margin-right: 12px;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: absolute;
+                left: -100%;
+                top: 100%;
+                gap: 0;
+                flex-direction: column;
+                background: white;
+                width: 50%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+            
+            .nav-item { 
+                padding: 6px 0;
+                margin: 16px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 50%;
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* About Teaser Section */
+        .about-teaser {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .teaser-media {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .teaser-media img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .teaser-copy p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--gray);
+            text-align: justify;
+        }
+        
+        @media (max-width: 768px) {
+            .teaser-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    
+/* Clients grid: 6 per row desktop with horizontal separators */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+#clients.section, section#clients, .clients {
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+.client-logo { border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+@media (max-width: 1200px) { .clients-grid { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 992px) { .clients-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px) { .clients-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+
+
+/* Enforce brand palette: links & accents */
+a { color: #000; }
+a:hover { color: #ff7a18; }
+.btn:not(.btn-secondary) { color: #fff; } /* ensure button text stays readable */
+
+
+/* Logo sizing & alignment */
+header .logo img, .navbar .logo img, .site-header .logo img, .logo img {
+    max-height: 56px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+@media (max-width: 768px){
+    header .logo img, .navbar .logo img, .site-header .logo img, .logo img {
+        max-height: 44px;
+    }
+}
+
+
+/* Social icons: default black background, white icon; hover becomes transparent */
+.social a, .social-links a, .footer-social a, .social-icons a {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.social a:hover, .social-links a:hover, .footer-social a:hover, .social-icons a:hover {
+    background: transparent;
+    color: #000;
+    border-color: #000;
+}
+
+
+/* Header logo sizing */
+header .logo img, .navbar .logo img, .site-header .logo img, .logo img {
+    max-height: 56px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+@media (max-width: 768px){
+    header .logo img, .navbar .logo img, .site-header .logo img, .logo img { max-height: 44px; }
+}
+
+
+/* Header spacing tuned for larger logo */
+header, .site-header, .navbar {
+    min-height: 72px;
+}
+.navbar .container, header .container, .site-header .container {
+    align-items: center;
+}
+
+
+/* Override: social icon hover should show white icon */
+.social a:hover, .social-links a:hover, .footer-social a:hover, .social-icons a:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* === Mobile centering (phones/tablets up to 768px) === */
+@media (max-width: 768px) {
+  /* Center every heading/title, including card titles and footer titles */
+  h1, h2, h3, h4, h5, h6,
+  .section-title,
+  .hero h1,
+  .service-content h3,
+  .about-text h2,
+  .contact-info h3,
+  .contact-form h3,
+  .bank-details h4,
+  .footer-col h4 {
+    text-align: center !important;
+  }
+
+  /* Center all paragraphs on mobile (overrides inline justify on small screens) */
+  p {
+    text-align: center !important;
+  }
+
+  /* Keep lists readable: left-align list text */
+  ul, ol {
+    text-align: left;
+  }
+
+  /* Center the bullet list inside service cards on mobile */
+  .service-content ul {
+    text-align: center;
+    list-style-position: inside;
+    padding-left: 0;
+  }
+  .service-content li {
+    text-align: center;
+  }
+
+  /* Center standalone icons */
+  .service-icon,
+  .step-number {
+    text-align: center;
+  }
+
+  /* Center social icon rows */
+  .social-links,
+  .social,
+  .social-icons {
+    justify-content: center;
+  }
+
+  /* Center buttons horizontally regardless of their parent container */
+  .btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Keep hero button group centered */
+  .hero-buttons {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+</style>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Kay-Tech Enterprises provides professional Printing, Branding, ICT and General Supply services in Zambia. Fast turnaround, reliable quality, and modern solutions.">
+    <meta name="keywords" content="Printing Zambia, Branding, ICT Solutions, General Supply, Software Development, Kitwe, Copperbelt, Kay-Tech Enterprises">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Kay-Tech Enterprises">
+
+    <link rel="canonical" href="https://www.mykaytech.com/">
+    <meta property="og:title" content="Kay-Tech Enterprises — Printing, Branding & ICT Solutions">
+    <meta property="og:description" content="Professional Printing, Branding, ICT and General Supply services across Zambia. Get a fast quote today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mykaytech.com/">
+    <meta property="og:image" content="assets/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kay-Tech Enterprises — Printing, Branding & ICT Solutions">
+    <meta name="twitter:description" content="Professional Printing, Branding, ICT and General Supply services across Zambia.">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kay-Tech Enterprises", "url": "https://www.mykaytech.com/", "logo": "https://www.mykaytech.com/assets/logo.png", "email": "info@mykaytech.com", "address": {"@type": "PostalAddress", "addressCountry": "ZM"}, "makesOffer": [{"@type": "Offer", "name": "Printing & Branding"}, {"@type": "Offer", "name": "ICT Solutions"}, {"@type": "Offer", "name": "Software Development"}, {"@type": "Offer", "name": "General Supply"}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM489P5Y7S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TM489P5Y7S');
+</script>
+<meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_TOKEN">
+<meta name="msvalidate.01" content="REPLACE_WITH_BING_VERIFICATION_CODE">
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'REPLACE_WITH_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=REPLACE_WITH_PIXEL_ID&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Google Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'analytics_storage': 'denied',
+  'functionality_storage': 'denied',
+  'personalization_storage': 'denied',
+  'security_storage': 'granted'
+});
+</script>
+
+<!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+               <a href="#" class="nav-link"><img src="assets/logo.png" alt="Kay-Tech Enterprises">
+            </a>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#process" class="nav-link">Process</a></li>
+                    <li class="nav-item"><a href="#clients" class="nav-link">Clients</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your Trusted Partner in Printing, Branding & ICT Solutions</h1>
+            <p>For over a decade, Kay-Tech Enterprises has been delivering exceptional quality and innovative solutions to businesses across Zambia</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Our Services</a>
+                <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive solutions to meet all your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Printing Solutions</h3>
+                        <p>From business cards to billboards, we deliver quality print products</p>
+                        <ul>
+                            <li>Marketing & Promotional Materials</li>
+                            <li>Large Format & Outdoor Printing</li>
+                            <li>Corporate Stationery</li>
+                            <li>Branded Wear & Identity</li>
+                            <li>Specialty Printing</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Graphics & Branding</h3>
+                        <p>Creative designs that make your brand stand out</p>
+                        <ul>
+                            <li>Logo Design</li>
+                            <li>Brochures & Catalogues</li>
+                            <li>Corporate Branding</li>
+                            <li>Signage & Displays</li>
+                            <li>Packaging Design</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ICT Services</h3>
+                        <p>Technology solutions to power your business</p>
+                        <ul>
+                            <li>Website Design & Development</li>
+                            <li>Email Hosting</li>
+                            <li>IT Consumables Supply</li>
+                            <li>Computer Accessories</li>
+                            <li>Technical Support</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>General Supply</h3>
+                        <p>Your one-stop shop for all business supplies</p>
+                        <ul>
+                            <li>Office Stationery</li>
+                            <li>School & Educational Supplies</li>
+                            <li>Cleaning Materials</li>
+                            <li>Corporate Gifts</li>
+                            <li>Medical Supplies</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cleaning Services</h3>
+                        <p>Professional cleaning for businesses and institutions</p>
+                        <ul>
+                            <li>Office Cleaning</li>
+                            <li>Institutional Cleaning</li>
+                            <li>Post-Construction Cleaning</li>
+                            <li>Specialized Cleaning</li>
+                            <li>Facility Maintenance</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+            
+                <div class="service-card"> 
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Software Development</h3>
+                        <p>Custom software tailored to your operations</p>
+                        <ul>
+                            <li>Web & Mobile Apps</li>
+                            <li>Business Process Tools</li>
+                            <li>Systems Integration (APIs)</li>
+                            <li>Database Design & Dashboards</li>
+                            <li>Maintenance & Support</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Kay-Tech Team">
+                </div>
+                <div class="about-text">
+                    <h2>About Kay-Tech</h2>
+<p style="text-align:justify">
+Kay‑Tech is a Zambian creative and technology partner delivering high‑quality Printing, Branding, ICT and General Supply solutions. 
+We combine modern equipment with disciplined processes to deliver consistent results—on time and within budget.
+</p>
+<p style="text-align:justify">
+Our multidisciplinary team supports corporates, SMEs, NGOs and faith‑based organizations across the Copperbelt and beyond with reliable service, clear communication and professional project management.
+</p>
+<a href="#contact" class="btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="section clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Clients</h2>
+                <p>We have had the privilege of serving these prestigious organizations</p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-logo"><img src="assets/clients/5.png" alt="Client 5" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/adverntist%20logo.png" alt="Adverntist Logo" loading="lazy" decoding="async"></div>
+                
+                <div class="client-logo"><img src="assets/clients/inno%20logo.png" alt="Inno Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/kalulushi%20trust%20logo.png" alt="Kalulushi Trust Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/KANO%20Cube%20Logo.png" alt="KANO Cube Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/Kano%20Dental%20Clinic%20Logo.png" alt="Kano Dental Clinic Logo" loading="lazy" decoding="async"></div>
+                
+                <div class="client-logo"><img src="assets/clients/lakeland%20logo.png" alt="Lakeland Logo" loading="lazy" decoding="async"></div>
+                <div class="mopani client-logo"><img src="assets/clients/mopani%20logo.jpg" alt="Mopani Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/PIA-LOGO-PNG.png" alt="PIA Logo" loading="lazy" decoding="async"></div>
+                
+                <div class="client-logo"><img src="assets/clients/SEC%20LOGO.png" alt="SEC Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/sun%20king%20logo.jpg" alt="Sun King Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/ultra%20dental%20logo.png" alt="Ultra Dental Logo" loading="lazy" decoding="async"></div>
+                <div class="client-logo"><img src="assets/clients/Umukwa%20Mining%20Shield%20Logo.png" alt="Umukwa Mining Shield Logo" loading="lazy" decoding="async"></div>
+                
+                <div class="client-logo"><img src="assets/clients/ZICTA%20logo.jpg" alt="ZICTA Logo" loading="lazy" decoding="async"></div>
+            </div>
+        </div>
+    </section>
+<!-- Process Section -->
+    <section id="process" class="section process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p>How we ensure quality and satisfaction in every project</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>Understanding your needs</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Design & Proofing</h3>
+                    <p>Creating and refining</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pre-Press Setup</h3>
+                    <p>Technical preparation</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Printing</h3>
+                    <p>Quality production</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Finishing</h3>
+                    <p>Adding final touches</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Delivery</h3>
+                    <p>On-time completion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Next Project?</h2>
+            <p>Get in touch with us today for a free consultation and quote. Let's bring your ideas to life!</p>
+            <a href="#contact" class="btn btn-secondary">Contact Us Now</a>
+        </div>
+    </section>
+      <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Kay-Tech Enterprises</h4>
+                    <p>Your trusted partner in branding, printing, ICT, and general supplies since 2012.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#clients">Clients</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Printing Solutions</a></li>
+                        <li><a href="#services">Graphics & Branding</a></li>
+                        <li><a href="#services">ICT Services</a></li>
+                        <li><a href="#services">General Supply</a></li>
+                        <li><a href="#services">Cleaning Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 id="contact">Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Kitwe, Zambia</li>
+                        <li><i class="fas fa-phone"></i> +260 979 502625</li>
+                        <li><i class="fas fa-envelope"></i> info@mykaytech.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright"><p>&copy; 2025 Kay-Tech Enterprises. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const headerEl = document.querySelector('header');
+        
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (navMenu && !navMenu.classList.contains('active')) {
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    headerEl.classList.add('nav-hidden');
+                } else {
+                    headerEl.classList.remove('nav-hidden');
+                }
+            }
+            lastScrollY = currentScrollY;
+        });
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        
+        // Form Submission -> PHP endpoint via fetch
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            let statusEl = document.getElementById('formStatus');
+            if (!statusEl) {
+                const p = document.createElement('p');
+                p.id = 'formStatus';
+                p.style.marginTop = '10px';
+                p.style.fontSize = '14px';
+                contactForm.appendChild(p);
+                statusEl = p;
+            }
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                statusEl.textContent = 'Sending...';
+                const formData = new FormData(contactForm);
+                try {
+                    const res = await fetch('contact.php', { method: 'POST', body: formData });
+                    const data = await res.json();
+                    if (data && data.success) {
+                        statusEl.textContent = 'Thanks! Your message has been sent.';
+                        contactForm.reset();
+                    } else {
+                        statusEl.textContent = (data && data.error) ? data.error : 'Sorry, something went wrong. Please try again later.';
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Network error. Please try again.';
+                }
+            });
+        }
+
+        // Animation on Scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .client-logo, .step');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if(position.top < window.innerHeight - 100) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize elements for animation
+        document.querySelectorAll('.service-card, .client-logo, .step').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check
+        window.addEventListener('load', animateOnScroll);
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('form').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      var required = form.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function(el){
+        if(!el.value || (el.type === 'email' && !el.value.match(/^\S+@\S+\.\S+$/))) {
+          valid = false;
+          el.classList.add('input-error');
+        } else {
+          el.classList.remove('input-error');
+        }
+      });
+      if(!valid){
+        e.preventDefault();
+        alert('Please fill in Name, Phone, and Email correctly.');
+      }
+    });
+  });
+});
+</script>
+<style>
+.input-error{ outline:2px solid #e11; }
+</style>
+
+</body>
+</html>

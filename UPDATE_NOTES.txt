@@ -1,0 +1,34 @@
+Kaytech Website - Full Update
+=============================
+
+What changed
+------------
+1) Content Security Policy (CSP) fixed in .htaccess to allow Font Awesome & Google Fonts (icons now show).
+2) Added Font Awesome v6 + Google Fonts links to all pages (if missing).
+3) Added favicons + web manifest and injected tags into <head>.
+4) New CSS: assets/css/fixes.css
+   - 2-line clamp on service descriptions for aligned cards.
+   - Hover color utilities: use .on-orange or .on-white on sections to control hover text color.
+   - Mobile navbar toggler visibility improvements.
+   - Client logo sizing.
+5) Contact form:
+   - php/contact.php uses PHPMailer if available (vendor/autoload.php), otherwise a built-in SMTP fallback.
+   - php/config.php contains SMTP settings (set your Titan mailbox, password, and recipient).
+   - Forms now post to php/contact.php and have required fields.
+
+How to finish setup
+-------------------
+A) Update php/config.php:
+   SMTP_USERNAME='you@yourdomain.com'
+   SMTP_PASSWORD='your Titan app password'
+   MAIL_TO='info@yourdomain.com'
+
+B) (Optional but recommended) Install PHPMailer on your host root (same level as php/):
+   composer require phpmailer/phpmailer
+   This will create vendor/autoload.php; the script will prefer PHPMailer automatically.
+
+C) Upload everything to your hosting root (keep .htaccess at the same level as index.html).
+
+D) If some links still hover blue, add .on-orange or .on-white on the parent section element.
+
+E) Hard refresh after upload (Ctrl/Cmd+Shift+R) to bypass caches.

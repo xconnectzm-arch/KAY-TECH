@@ -1,0 +1,201 @@
+/* Fixes: services clamp, hover color utilities, client logos */
+.services .card .desc,
+.service-card .desc, .service .desc, .service-item .desc,
+.service p.desc, .services .desc, .services .service .text, .services .service p {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; line-height: 1.5; min-height: calc(1.5em * 2);
+}
+.on-orange a:hover, .on-orange .btn:hover, .on-orange .nav-link:hover, .on-orange .link:hover { color: #fff !important; }
+.on-white a:hover, .on-white .btn:hover, .on-white .nav-link:hover, .on-white .link:hover { color: #000 !important; }
+.clients img, .client-logos img, .our-clients img { /*max-height: 56px;*/ width: auto; object-fit: contain; image-rendering: auto; }
+
+/* Mobile menu and branding */
+@media (max-width: 991.98px) {
+  .navbar, .navbar .container, .navbar .container-fluid { justify-content: center !important; }
+  .navbar-toggler { margin-left: auto; margin-right: auto; display: inline-flex; align-items: center; justify-content: center; }
+  .navbar-brand, nav .logo, nav .brand { display:block !important; margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
+  .navbar-collapse:not(.show):not(.is-open),
+  nav .menu:not(.show):not(.is-open), nav .site-menu:not(.show):not(.is-open),
+  nav ul:not(.show):not(.is-open) { display:none !important; }
+  .navbar-collapse.show, .navbar-collapse.is-open, nav .menu.show, nav .menu.is-open, nav ul.show, nav ul.is-open {
+    display:flex !important; flex-direction:column !important; align-items:center !important; gap:.25rem !important;
+  }
+}
+
+/* Footer icons centered + underline centered */
+footer .social, .footer .social, .site-footer .social,
+footer .social-icons, .footer .social-icons, .site-footer .social-icons,
+footer .icons, .footer .icons, .site-footer .icons {
+  display:flex !important; justify-content:center !important; align-items:center !important;
+  gap:10px !important; flex-wrap:wrap !important; padding-left:0 !important; list-style:none !important; margin:0 auto !important;
+}
+footer h3, footer h4, footer h5, .footer h3, .footer h4, .footer h5,
+.site-footer h3, .site-footer h4, .site-footer h5,
+footer .title, .footer .title, .site-footer .title { position:relative; padding-bottom:.5rem; text-align:center !important; }
+footer h3::after, footer h4::after, footer h5::after,
+.footer h3::after, .footer h4::after, .footer h5::after,
+.site-footer h3::after, .site-footer h4::after, .site-footer h5::after,
+footer .title::after, .footer .title::after, .site-footer .title::after {
+  content:""; display:block; width:60px; height:2px; background:currentColor; margin:.4rem auto 0; opacity:.6;
+}
+
+/* General responsive polish */
+img, svg, video, canvas { max-width:100%; height:auto; }
+* { word-wrap: break-word; overflow-wrap: anywhere; }
+
+
+/* --- Footer: full centering on all screen sizes --- */
+footer, .footer, .site-footer {
+  text-align: center !important;
+}
+footer .container, .footer .container, .site-footer .container,
+footer .row, .footer .row, .site-footer .row {
+  justify-content: center !important;
+}
+/* Center common blocks */
+footer .logo, .footer .logo, .site-footer .logo,
+footer .footer-logo, .footer .footer-logo, .site-footer .footer-logo,
+footer .logo img, .footer .logo img, .site-footer .logo img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+/* Center lists/links */
+footer ul, .footer ul, .site-footer ul,
+footer .list-unstyled, .footer .list-unstyled, .site-footer .list-unstyled,
+footer .links, .footer .links, .site-footer .links,
+footer .nav, .footer .nav, .site-footer .nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: .5rem 1rem !important;
+  padding-left: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+footer li { list-style: none !important; }
+
+/* Keep the decorative underline centered */
+footer h3, footer h4, footer h5, .footer h3, .footer h4, .footer h5,
+.site-footer h3, .site-footer h4, .site-footer h5,
+footer .title, .footer .title, .site-footer .title {
+  position: relative; padding-bottom: .5rem; text-align: center !important;
+}
+footer h3::after, footer h4::after, footer h5::after,
+.footer h3::after, .footer h4::after, .footer h5::after,
+.site-footer h3::after, .site-footer h4::after, .site-footer h5::after,
+footer .title::after, .footer .title::after, .site-footer .title::after {
+  content: ""; display: block; width: 60px; height: 2px; background: currentColor; margin: .4rem auto 0; opacity: .6;
+}
+
+
+/* --- Footer: align titles & text; center on mobile --- */
+@media (max-width: 767.98px) {
+  footer, .footer, .site-footer { text-align: center !important; }
+  footer p, .footer p, .site-footer p,
+  footer a, .footer a, .site-footer a,
+  footer li, .footer li, .site-footer li { text-align: center !important; }
+  footer h2, footer h3, footer h4, footer h5, footer h6,
+  .footer h2, .footer h3, .footer h4, .footer h5, .footer h6,
+  .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 {
+    text-align: center !important;
+  }
+}
+
+
+/* --- Make text white on hover for gold buttons (#d39e00) --- */
+button[style*="d39e00"]:hover,
+a.button[style*="d39e00"]:hover,
+a.btn[style*="d39e00"]:hover,
+.btn[style*="d39e00"]:hover,
+.button[style*="d39e00"]:hover,
+.cta[style*="d39e00"]:hover {
+  color: #ffffff !important;
+}
+
+/* Common class-based fallbacks */
+.btn-warning:hover,
+.btn-gold:hover,
+.bg-gold:hover,
+.btn.gold:hover {
+  color: #ffffff !important;
+}
+
+/* If the gold is set via CSS custom class */
+.btn-gold, .bg-gold { background-color: #d39e00 !important; border-color: #d39e00 !important; }
+.btn-gold:hover, .bg-gold:hover { color: #ffffff !important; }
+
+
+/* === FORCED UPDATE === */
+/* 1) Force white text for any gold (#d39e00) buttons (default & hover) */
+[style*="d39e00" i].btn,
+[style*="d39e00" i].button,
+[style*="d39e00" i].cta,
+[style*="background:#d39e00" i],
+[style*="background: #d39e00" i],
+[style*="background-color:#d39e00" i],
+[style*="background-color: #d39e00" i] {
+  color: #ffffff !important;
+}
+[style*="d39e00" i].btn:hover,
+[style*="d39e00" i].button:hover,
+[style*="d39e00" i].cta:hover,
+[style*="background:#d39e00" i]:hover,
+[style*="background: #d39e00" i]:hover,
+[style*="background-color:#d39e00" i]:hover,
+[style*="background-color: #d39e00" i]:hover {
+  color: #ffffff !important;
+}
+/* Class-based fallbacks */
+.btn-warning, .btn-gold, .bg-gold, .btn.gold { background-color:#d39e00 !important; border-color:#d39e00 !important; color:#ffffff !important; }
+.btn-warning:hover, .btn-gold:hover, .bg-gold:hover, .btn.gold:hover { color:#ffffff !important; }
+
+/* 2) Footer alignment: left on desktop/tablet; center only on small screens */
+footer, .footer, .site-footer,
+footer p, .footer p, .site-footer p,
+footer a, .footer a, .site-footer a,
+footer li, .footer li, .site-footer li,
+footer h2, .footer h2, .site-footer h2,
+footer h3, .footer h3, .site-footer h3,
+footer h4, .footer h4, .site-footer h4,
+footer h5, .footer h5, .site-footer h5,
+footer h6, .footer h6, .site-footer h6 {
+  text-align: left !important;
+}
+/* Center underline should still sit below text; it will follow text-align on small screens */
+@media (max-width: 767.98px){
+  footer, .footer, .site-footer,
+  footer p, .footer p, .site-footer p,
+  footer a, .footer a, .site-footer a,
+  footer li, .footer li, .site-footer li,
+  footer h2, .footer h2, .site-footer h2,
+  footer h3, .footer h3, .site-footer h3,
+  footer h4, .footer h4, .site-footer h4,
+  footer h5, .footer h5, .site-footer h5,
+  footer h6, .footer h6, .site-footer h6 {
+    text-align: center !important;
+  }
+}
+
+/* 3) Align/size contact form to match bank details side */
+@media (min-width: 992px){
+  /* Try common containers/selectors */
+  section#contact .row, .contact .row, .contact-row { align-items: flex-start !important; }
+  /* Form width cap */
+  .contact form, section#contact form, form.contact-form, .contact-form {
+    max-width: 520px !important;
+  }
+  /* If the form sits in a column, keep it tidy */
+  .contact [class*="col"] form,
+  section#contact [class*="col"] form {
+    max-width: 520px !important;
+  }
+  /* Try typical bank details wrapper widths so they match visually */
+  .bank-details, .payment-details, .account-details {
+    max-width: 520px !important;
+  }
+}
+@media (max-width: 991.98px){
+  /* Full width on mobile */
+  .contact form, section#contact form, form.contact-form, .contact-form { max-width: 100% !important; }
+}
